@@ -1,0 +1,769 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+/* line 5, ../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+@font-face {
+  font-family: 'Gotham-Bold';
+  src: url("../fonts/Gotham-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Gotham-Bold.woff") format("woff"), url("../fonts/Gotham-Bold.ttf") format("truetype"), url("../fonts/Gotham-Bold.svg#Gotham-Bold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gotham-Light';
+  src: url("../fonts/Gotham-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/Gotham-Light.woff") format("woff"), url("../fonts/Gotham-Light.ttf") format("truetype"), url("../fonts/Gotham-Light.svg#Gotham-Light") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gotham-Medium';
+  src: url("../fonts/Gotham-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/Gotham-Medium.woff") format("woff"), url("../fonts/Gotham-Medium.ttf") format("truetype"), url("../fonts/Gotham-Medium.svg#Gotham-Medium") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 48, ../sass/style.scss */
+body, html {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 52, ../sass/style.scss */
+body {
+  background: #f8f8f8;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #231f20;
+}
+
+/* line 59, ../sass/style.scss */
+.site-nav {
+  text-align: right;
+}
+@media screen and (max-width: 650px) {
+  /* line 59, ../sass/style.scss */
+  .site-nav {
+    text-align: left;
+  }
+}
+/* line 64, ../sass/style.scss */
+.site-nav ul {
+  display: inline-block;
+}
+/* line 66, ../sass/style.scss */
+.site-nav ul li {
+  display: inline-block;
+}
+/* line 68, ../sass/style.scss */
+.site-nav ul li a {
+  color: #231f20;
+  text-decoration: none;
+  font-size: 12px;
+  display: inline-block;
+  padding: 15px;
+}
+
+@media screen and (min-width: 1500px) {
+  /* line 79, ../sass/style.scss */
+  #left-top {
+    width: 100px;
+    height: 100px;
+    border-top: 20px solid #ec1c24;
+    border-left: 20px solid #ec1c24;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 50;
+  }
+
+  /* line 89, ../sass/style.scss */
+  #left-bottom {
+    width: 100px;
+    height: 100px;
+    border-bottom: 20px solid #ec1c24;
+    border-left: 20px solid #ec1c24;
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 50;
+  }
+
+  /* line 99, ../sass/style.scss */
+  #right-top {
+    width: 100px;
+    height: 100px;
+    border-top: 20px solid #ec1c24;
+    border-right: 20px solid #ec1c24;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 50;
+  }
+
+  /* line 109, ../sass/style.scss */
+  #right-bottom {
+    width: 100px;
+    height: 100px;
+    border-bottom: 20px solid #ec1c24;
+    border-right: 20px solid #ec1c24;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 50;
+  }
+}
+/* line 121, ../sass/style.scss */
+h1, h2, h3 {
+  font-family: 'Gotham-Bold';
+}
+
+/* line 125, ../sass/style.scss */
+strong {
+  font-weight: bold;
+}
+
+/* line 128, ../sass/style.scss */
+.site-inner {
+  width: 1280px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+@media screen and (max-width: 1280px) {
+  /* line 128, ../sass/style.scss */
+  .site-inner {
+    width: 100%;
+  }
+}
+
+/* line 138, ../sass/style.scss */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 25px;
+  color: #231f20;
+  font-size: 18px;
+}
+/* line 144, ../sass/style.scss */
+.btn.btn-1 {
+  background: #fff;
+  margin-top: 30px;
+}
+
+/* line 150, ../sass/style.scss */
+.section {
+  padding: 90px 0;
+}
+/* line 152, ../sass/style.scss */
+.section .section-title {
+  text-align: center;
+}
+/* line 154, ../sass/style.scss */
+.section .section-title:before {
+  content: "";
+  display: inline-block;
+  width: 60px;
+  height: 2px;
+  background: #000;
+  margin: 10px 0;
+}
+/* line 162, ../sass/style.scss */
+.section .section-title h2 {
+  font-size: 30px;
+  line-height: 34px;
+  margin: 0 0 40px;
+}
+
+/* line 170, ../sass/style.scss */
+.icon-strip {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/* line 174, ../sass/style.scss */
+.icon-strip .icon-box {
+  width: 24%;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 50px 15px;
+  background: transparent;
+  cursor: pointer;
+}
+@media screen and (max-width: 650px) {
+  /* line 174, ../sass/style.scss */
+  .icon-strip .icon-box {
+    width: 80%;
+  }
+}
+/* line 184, ../sass/style.scss */
+.icon-strip .icon-box:hover {
+  background: #fff;
+  box-shadow: 0px 1px 10px 0px rgba(145, 145, 145, 0.78);
+}
+/* line 188, ../sass/style.scss */
+.icon-strip .icon-box .icon {
+  margin: 0 0 25px;
+}
+/* line 190, ../sass/style.scss */
+.icon-strip .icon-box .icon img {
+  max-width: 100%;
+}
+/* line 194, ../sass/style.scss */
+.icon-strip .icon-box .icon-text {
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: uppercase;
+}
+
+/* line 203, ../sass/style.scss */
+#section-1 {
+  background: url(../images/bg1.jpg) no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  padding: 0;
+}
+@media screen and (max-width: 800px) {
+  /* line 203, ../sass/style.scss */
+  #section-1 {
+    height: auto;
+  }
+}
+/* line 211, ../sass/style.scss */
+#section-1 .content-block {
+  width: 520px;
+  box-sizing: border-box;
+  padding: 80px 0 50px;
+  font-family: 'Gotham-Medium';
+  font-size: 18px;
+  color: #fff;
+  line-height: 24px;
+}
+@media screen and (max-width: 520px) {
+  /* line 211, ../sass/style.scss */
+  #section-1 .content-block {
+    width: 90%;
+    margin: 15px auto;
+  }
+}
+/* line 223, ../sass/style.scss */
+#section-1 .content-block img {
+  display: block;
+  margin: 0 0 100px;
+  max-width: 100%;
+}
+/* line 228, ../sass/style.scss */
+#section-1 .content-block h3 {
+  font-family: 'Gotham-Medium';
+  line-height: 24px;
+  margin: 0px 0 15px;
+}
+/* line 233, ../sass/style.scss */
+#section-1 .content-block h2 {
+  font-size: 38px;
+  line-height: 48px;
+  margin: 0px 0 15px;
+}
+
+/* line 244, ../sass/style.scss */
+#section-2 .content-block {
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Gotham-Medium';
+  line-height: 20px;
+  width: 80%;
+  margin: 40px auto;
+}
+/* line 251, ../sass/style.scss */
+#section-2 .content-block p {
+  margin: 0 0 20px;
+}
+
+/* line 256, ../sass/style.scss */
+#section-3 {
+  background: #e1e1e1;
+  text-align: center;
+}
+
+/* line 263, ../sass/style.scss */
+.form-block form {
+  display: block;
+  width: 450px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 450px) {
+  /* line 263, ../sass/style.scss */
+  .form-block form {
+    width: 90%;
+  }
+}
+/* line 270, ../sass/style.scss */
+.form-block form .form-hr {
+  margin: 40px 0;
+  border: 1px dotted #888;
+}
+
+/* line 276, ../sass/style.scss */
+.form-ele {
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+/* line 279, ../sass/style.scss */
+.form-ele .form-col1 {
+  margin: 0 0 5px;
+}
+/* line 281, ../sass/style.scss */
+.form-ele .form-col1:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/* line 287, ../sass/style.scss */
+.form-ele select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  background: #fff;
+  border: 0;
+  color: #9a9999;
+}
+/* line 296, ../sass/style.scss */
+.form-ele input[type="text"],
+.form-ele input[type="email"],
+.form-ele textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 15px 10px;
+  background: #fff;
+  border: 0;
+  color: #9a9999;
+}
+/* line 42, ../sass/style.scss */
+.form-ele input[type="text"]::-webkit-input-placeholder,
+.form-ele input[type="email"]::-webkit-input-placeholder,
+.form-ele textarea::-webkit-input-placeholder {
+  color: #888888;
+  font-family: 'Gotham-Light';
+}
+/* line 43, ../sass/style.scss */
+.form-ele input[type="text"]:-moz-placeholder,
+.form-ele input[type="email"]:-moz-placeholder,
+.form-ele textarea:-moz-placeholder {
+  color: #888888;
+  font-family: 'Gotham-Light';
+}
+/* line 44, ../sass/style.scss */
+.form-ele input[type="text"]::-moz-placeholder,
+.form-ele input[type="email"]::-moz-placeholder,
+.form-ele textarea::-moz-placeholder {
+  color: #888888;
+  font-family: 'Gotham-Light';
+}
+/* line 45, ../sass/style.scss */
+.form-ele input[type="text"]:-ms-input-placeholder,
+.form-ele input[type="email"]:-ms-input-placeholder,
+.form-ele textarea:-ms-input-placeholder {
+  color: #888888;
+  font-family: 'Gotham-Light';
+}
+/* line 312, ../sass/style.scss */
+.form-ele #link {
+  width: 90%;
+  float: left;
+}
+/* line 316, ../sass/style.scss */
+.form-ele .help-box {
+  display: inline-block;
+  width: 10%;
+  box-sizing: border-box;
+  padding: 10px;
+  position: relative;
+}
+/* line 322, ../sass/style.scss */
+.form-ele .help-box a#help-icon {
+  display: block;
+  border-radius: 50%;
+  background: #000;
+  border: 1px solid #000;
+  color: #fff;
+  text-align: center;
+  font-family: "Arial";
+  text-decoration: none;
+  width: 27px;
+  height: 27px;
+  box-sizing: border-box;
+}
+/* line 335, ../sass/style.scss */
+.form-ele .help-box .help-popup {
+  display: none;
+  position: absolute;
+  bottom: 50px;
+  left: -100px;
+  width: 200px;
+  box-sizing: border-box;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 10px;
+  background: #000;
+  color: #fff;
+  z-index: 2;
+}
+/* line 349, ../sass/style.scss */
+.form-ele .help-box .help-popup-arrow {
+  display: none;
+  position: absolute;
+  bottom: 38px;
+  left: 50%;
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 25px 12.5px 0 12.5px;
+  border-color: #000000 transparent transparent transparent;
+  z-index: 1;
+}
+/* line 363, ../sass/style.scss */
+.form-ele .help-box.clicked a#help-icon {
+  background: #fff;
+  color: #000;
+}
+/* line 367, ../sass/style.scss */
+.form-ele .help-box.clicked .help-popup {
+  display: block;
+}
+/* line 370, ../sass/style.scss */
+.form-ele .help-box.clicked .help-popup-arrow {
+  display: block;
+}
+/* line 375, ../sass/style.scss */
+.form-ele textarea {
+  height: 100px;
+}
+/* line 379, ../sass/style.scss */
+.form-ele label {
+  font-size: 10px;
+  float: right;
+  width: 93%;
+  color: #333;
+  text-align: left;
+  line-height: 20px;
+}
+/* line 388, ../sass/style.scss */
+.form-ele label a {
+  color: #333;
+  text-decoration: underline;
+}
+/* line 393, ../sass/style.scss */
+.form-ele input[type="submit"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px;
+  background: #000;
+  border: 0;
+  color: #fff;
+  font-size: 20px;
+  appearance: none;
+}
+
+/* line 406, ../sass/style.scss */
+#file-upload-area {
+  outline: 1px dashed #888;
+  width: 100%;
+  height: 180px;
+  box-sizing: border-box;
+  padding: 30px;
+  font-size: 14px;
+}
+/* line 413, ../sass/style.scss */
+#file-upload-area.is-dragover {
+  background-color: #333;
+}
+/* line 416, ../sass/style.scss */
+#file-upload-area p {
+  margin: 0 0 10px;
+}
+/* line 420, ../sass/style.scss */
+#file-upload-area #file-btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 15px;
+  color: #fff;
+  font-size: 14px;
+  background: #1474f7;
+}
+/* line 429, ../sass/style.scss */
+#file-upload-area #fileToUpload {
+  display: none;
+}
+/* line 431, ../sass/style.scss */
+#file-upload-area #fileToUpload.show {
+  display: inline-block;
+}
+/* line 436, ../sass/style.scss */
+#file-upload-area #progress-wrp {
+  display: none;
+  position: relative;
+  margin: 10px;
+  text-align: left;
+  background: #fff;
+  height: 20px;
+}
+/* line 444, ../sass/style.scss */
+#file-upload-area #progress-wrp .progress-bar {
+  height: 20px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #1474f7;
+  width: 0;
+}
+/* line 450, ../sass/style.scss */
+#file-upload-area #progress-wrp .status {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  color: #000000;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/* line 463, ../sass/style.scss */
+.msg {
+  color: #ec1c24;
+  font-size: 14px;
+  line-height: 18px;
+}
+/* line 467, ../sass/style.scss */
+.msg p {
+  margin: 0 0 10px;
+}
+
+/* line 472, ../sass/style.scss */
+.gallery-header {
+  padding: 15px 0;
+  background: #fff;
+  -moz-box-shadow: 0px 1px 10px 0px rgba(145, 145, 145, 0.78);
+  -webkit-box-shadow: 0px 1px 10px 0px rgba(145, 145, 145, 0.78);
+  box-shadow: 0px 1px 10px 0px rgba(145, 145, 145, 0.78);
+}
+/* line 476, ../sass/style.scss */
+.gallery-header .gallery-header-inner {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+/* line 480, ../sass/style.scss */
+.gallery-header .header-logo {
+  width: 50%;
+}
+/* line 483, ../sass/style.scss */
+.gallery-header .site-nav {
+  width: 50%;
+}
+@media screen and (max-width: 600px) {
+  /* line 483, ../sass/style.scss */
+  .gallery-header .site-nav {
+    display: none;
+  }
+}
+
+/* line 490, ../sass/style.scss */
+.gallery-page {
+  padding: 90px 0;
+}
+/* line 492, ../sass/style.scss */
+.gallery-page .gallery-block {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+/* line 495, ../sass/style.scss */
+.gallery-page .gallery-block .gallery-item {
+  width: 25%;
+  height: 300px;
+  display: block;
+}
+@media screen and (max-width: 800px) {
+  /* line 495, ../sass/style.scss */
+  .gallery-page .gallery-block .gallery-item {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 650px) {
+  /* line 495, ../sass/style.scss */
+  .gallery-page .gallery-block .gallery-item {
+    width: 100%;
+  }
+}
+
+/* line 509, ../sass/style.scss */
+#loader-icon {
+  text-align: center;
+  padding: 30px 0;
+}
+
+/* line 514, ../sass/style.scss */
+#thankyou-box {
+  display: none;
+  position: fixed;
+  top: 20%;
+  left: 0;
+  right: 0;
+  width: 320px;
+  height: auto;
+  box-sizing: border-box;
+  padding: 25px;
+  text-align: center;
+  background: #fff;
+  margin: 0 auto;
+  -moz-box-shadow: 0px 1px 10px 0px rgba(145, 145, 145, 0.78);
+  -webkit-box-shadow: 0px 1px 10px 0px rgba(145, 145, 145, 0.78);
+  box-shadow: 0px 1px 10px 0px rgba(145, 145, 145, 0.78);
+  font-size: 18px;
+  line-height: 24px;
+}
+/* line 530, ../sass/style.scss */
+#thankyou-box p {
+  margin: 0 0 25px;
+}
+/* line 533, ../sass/style.scss */
+#thankyou-box a {
+  color: #1474f7;
+  text-decoration: underline;
+}
+/* line 537, ../sass/style.scss */
+#thankyou-box.show {
+  display: block;
+}
+
+/* line 541, ../sass/style.scss */
+footer {
+  background: #fff;
+}
+/* line 543, ../sass/style.scss */
+footer .footer-inner {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 15px 0 40px;
+}
+/* line 547, ../sass/style.scss */
+footer .footer-inner .footer-left {
+  width: 50%;
+  text-align: left;
+}
+/* line 550, ../sass/style.scss */
+footer .footer-inner .footer-left span {
+  vertical-align: middle;
+  font-size: 12px;
+}
+@media screen and (max-width: 650px) {
+  /* line 547, ../sass/style.scss */
+  footer .footer-inner .footer-left {
+    width: 100%;
+    text-align: center;
+    margin: 0 0 20px;
+  }
+}
+/* line 560, ../sass/style.scss */
+footer .footer-inner .footer-right {
+  width: 50%;
+  text-align: right;
+}
+@media screen and (max-width: 650px) {
+  /* line 560, ../sass/style.scss */
+  footer .footer-inner .footer-right {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* line 571, ../sass/style.scss */
+.pp-tableCell {
+  vertical-align: top;
+}
+
+/* line 575, ../sass/style.scss */
+#pp-nav li .active span, .pp-slidesNav .active span {
+  background-color: #ec1c24;
+}
+
+/* line 578, ../sass/style.scss */
+#pp-nav span, .pp-slidesNav span {
+  background-color: #fff;
+  border: 0;
+  width: 15px;
+  height: 15px;
+}

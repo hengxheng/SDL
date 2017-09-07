@@ -1,0 +1,203 @@
+
+$("#help-icon").on("click", function(e){
+  e.preventDefault();
+  $(".help-box").toggleClass("clicked");
+});
+
+// File uploader
+
+var $drop = $("#file-upload-area");
+$drop.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+  e.preventDefault();
+  e.stopPropagation();
+})
+.on('dragover dragenter', function() {
+  $drop.addClass('is-dragover');
+})
+.on('dragleave dragend drop', function() {
+  $drop.removeClass('is-dragover');
+})
+.on('drop', function(e) {
+  $("#fileToUpload").prop('files', e.originalEvent.dataTransfer.files);
+});
+
+$("#file-btn").on("click", function(e){
+  e.preventDefault();
+  $("#fileToUpload").trigger("click");
+});
+
+$("#fileToUpload").change(function(){
+  if( $(this).get(0).files.length != 0 ){
+    $(this).addClass("show");
+    $("#file-btn").hide();
+  }
+  else{
+    $(this).removeClass("show");
+    $("#file-btn").show();
+  }
+});
+
+
+$("#submit-form").submit(function(e){
+  e.preventDefault();
+
+  var vid = true;
+  $(".msg").html(" ");
+
+  if($("#fullname").val() == ""){
+    vid = false;
+    $(".msg").append("<p>Please fill in your name.</p>");
+  }
+
+  if($("#email").val() == ""){
+    vid = false;
+    $(".msg").append("<p>Please fill in your email.</p>");
+  }
+
+  if($("#c-email").val() != $("#email").val() || $("#c-email").val() == ""){
+    vid = false;
+    $(".msg").append("<p>Email does not match.</p>");
+  }
+
+  var phone = $("#phone").val();
+  if(!(/^\d+$/.test(phone))){
+    vid = false;
+    $(".msg").append("<p>Please fill in your phone number.</p>");
+  }
+
+  if($("#state").val() == ""){
+    vid = false;
+    $(".msg").append("<p>Please fill in your state.</p>");
+  }
+
+  if($("#fileToUpload").val() == ""){
+    vid = false;
+    $(".msg").append("<p>Please upload photo.</p>");
+  }
+
+  var ext = $('#fileToUpload').val().split('.').pop().toLowerCase();
+  if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
+    vid = false;
+    $(".msg").append("<p>Please upload gif, png, jpg , jpeg file.</p>");
+  }
+  
+  var url_pattern = /^(http[s]?:\/\/)(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/;
+  var photo_link = $("#link").val();
+  if(!url_pattern.test(photo_link)){
+    vid = false;
+    $(".msg").append("<p>Please enter a valid hi-resolution photograph URL.</p>");
+  }
+
+  if(!$("#check-1").is(":checked")){
+          vid = false;
+          $(".msg").append("<p>Please have a hi-resolution copy of the image I am submitting.</p>");
+  }
+
+  if(!$("#check-2").is(":checked")){
+    vid = false;
+    $(".msg").append("<p>Please agree if I am a finalist I agree to have the image submitted exhibited at an exclusive event in Sydney and printed in a limited-edition photobook to be distributed Western Digital’s discretion.</p>");
+  }
+  if(!$("#check-3").is(":checked")){
+    vid = false;
+    $(".msg").append("<p>Please agree if I am a finalist I agree to have my image shared on Western Digital social media accounts worldwide, including that of WD and SanDisk.</p>");
+  }
+
+  if(!$("#check-4").is(":checked")){
+    vid = false;
+    $(".msg").append("<p>Please read and agree to the terms and conditions and privacy policy.</p>");
+  }
+
+  if(vid){
+    var url = document.location.origin+"/form.php";
+    // var redirect_url = document.location.origin+"/slanding/gallery.php";
+    var data = $("#submit-form")[0];
+    var formData = new FormData(data);
+    $("#submit-btn").prop("disabled", true);
+    $(".box__input").hide();
+    $("#progress-wrp").show();
+    $.ajax({
+      type:"POST",
+      url: url,
+      data: formData,
+      processData: false,
+      contentType: false,
+      cache: false,
+      timeout: 600000,
+      xhr: function(){
+        //upload Progress
+        var xhr = $.ajaxSettings.xhr();
+        if (xhr.upload) {
+            xhr.upload.addEventListener('progress', function(event) {
+                var percent = 0;
+                var position = event.loaded || event.position;
+                var total = event.total;
+                if (event.lengthComputable) {
+                    percent = Math.ceil(position / total * 100);
+                }
+                //update progressbar
+                $("#progress-wrp .progress-bar").css("width", + percent +"%");
+                $("#progress-wrp .status").text(percent +"%");
+            }, true);
+        }
+        return xhr;
+      },
+      mimeType:"multipart/form-data"
+    }).done(function(res){
+      $("#thankyou-box").addClass("show");
+    });
+  }
+});
+
+$(".s-link").on("click", function(e){
+  e.preventDefault();
+  var full_url = this.href;
+  var parts = full_url.split("#");
+  var trgt = parts[1];
+
+  var target_offset = $("#"+trgt).offset();
+  var target_top = target_offset.top;
+  $('html, body').animate({scrollTop:target_top}, 1000);
+});
+
+jQuery(function($){
+  if($("#gallery-page").length>0){
+    var loadmore_url = document.location.origin+"/ajax-load.php";
+    var isPreviousEventComplete = true, isDataAvailable = true;
+    var offset = 2;
+    $(window).scroll(function() {
+      if($(window).scrollTop() > ($(document).height()-$(window).height()-200)) {
+        if (isPreviousEventComplete && isDataAvailable) {
+          isPreviousEventComplete = false;
+
+          $.ajax({
+            url: loadmore_url,
+            type: "POST",
+            data:  {
+              paged: offset
+            },
+            beforeSend: function(){
+              $('#loader-icon').show();
+            },
+            complete: function(){
+              isPreviousEventComplete = true;
+              $('#loader-icon').hide();
+            },
+            success: function(data){
+              if(data.trim() == ""){
+                isDataAvailable = false;
+              }
+              else{
+                offset++;
+                $("#gallery-page .gallery-block").append(data);
+              }
+            },
+            error: function(){} 	        
+          });
+         
+        }
+      }
+    });
+  }
+});
+
+  
