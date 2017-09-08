@@ -16,22 +16,15 @@
 	$email = mysqli_real_escape_string($conn, $_POST['email']);
 	$state = mysqli_real_escape_string($conn, $_POST['state']);
 	$link = mysqli_real_escape_string($conn, $_POST['link']);
+	$photo = mysqli_real_escape_string($conn, $_POST['uploaded-file-name']);
 	$newsletter = mysqli_real_escape_string($conn, $_POST['newsletter']);
 	if(!$newsletter){
 		$newsletter = "off";
 	}
 
-	// Upload files
-
-	$temp = explode(".", $_FILES["upload-photo"]["name"]);
-	$extension = end($temp);
-
 	$photo_dir = "upload/";
 
-	$photo_file = $photo_dir.strtolower($fullname)."_".time().".".$extension;
-
-	$photo_file = str_replace(" ", "_", $photo_file);
-
+	$photo_file = $photo_dir.$photo;
 	
 	if (move_uploaded_file($_FILES["upload-photo"]["tmp_name"], $photo_file)) {
     } else {

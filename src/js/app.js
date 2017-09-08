@@ -29,7 +29,6 @@ $("#file-btn").on("click", function(e){
 $("#fileToUpload").change(function(){
   if( $(this).get(0).files.length != 0 ){
     $(this).addClass("show");
-    $("#file-btn").hide();
   }
   else{
     $(this).removeClass("show");
@@ -38,8 +37,84 @@ $("#fileToUpload").change(function(){
 });
 
 
+
+// Upload file
+$("#uplaod-btn").on("click", function(e){
+  e.preventDefault();
+  $("#upload-output").html(" ");
+  var file_vid = true;
+  // file upload validation
+  if($("#fileToUpload").val() == ""){
+    file_vid = false;
+    
+    $("#upload-output").append("<p>Please upload photo.</p>");
+  }
+  else{
+    var ext = $('#fileToUpload').val().split('.').pop().toLowerCase();
+    var file = $("#fileToUpload")[0].files[0];
+    var fileSize = file.size/1024/1024;
+
+    if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
+      file_vid = false;
+      $("#upload-output").append("<p>Please upload gif, png, jpg , jpeg file.</p>");
+    }
+    
+    if(fileSize > 2){
+      file_vid = false;
+      $("#upload-output").append("<p>Photo should be less than 2MB.</p>");
+      $('#fileToUpload').val('');
+    }
+  }
+
+  if(file_vid){
+    var formFile = new FormData();
+    var file = $("#fileToUpload")[0].files[0];
+    $(".box__input").hide();
+    $("#progress-wrp").show();
+    formFile.append('upload-photo', file, file.name);
+    var file_url = document.location.origin+"/slanding/ajax-file-upload.php";
+    $.ajax({
+      type:"POST",
+      url: file_url,
+      data: formFile,
+      processData: false,
+      contentType: false,
+      cache: false,
+      timeout: 600000,
+      xhr: function(){
+        //upload Progress
+        var xhr = $.ajaxSettings.xhr();
+        if (xhr.upload) {
+            xhr.upload.addEventListener('progress', function(event) {
+                var percent = 0;
+                var position = event.loaded || event.position;
+                var total = event.total;
+                if (event.lengthComputable) {
+                    percent = Math.ceil(position / total * 100);
+                }
+                //update progressbar
+                $("#progress-wrp .progress-bar").css("width", + percent +"%");
+                $("#progress-wrp .status").text(percent +"%");
+            }, true);
+        }
+        return xhr;
+      },
+      mimeType:"multipart/form-data"
+    }).done(function(res){
+      console.log(res);
+      $("#uploaded-file-name").val(res);
+      $('#fileToUpload').val('');
+    });
+  }
+});
+
+
+// Form submit 
 $("#submit-form").submit(function(e){
   e.preventDefault();
+
+  // Do not submit file
+  $('#fileToUpload').val('');
 
   var vid = true;
   $(".msg").html(" ");
@@ -70,17 +145,10 @@ $("#submit-form").submit(function(e){
     $(".msg").append("<p>Please fill in your state.</p>");
   }
 
-  if($("#fileToUpload").val() == ""){
+  if($("#uploaded-file-name").val() == ""){
     vid = false;
-    $(".msg").append("<p>Please upload photo.</p>");
+    $(".msg").append("<p>Please upload photo before submitting.</p>");
   }
-
-  var ext = $('#fileToUpload').val().split('.').pop().toLowerCase();
-  if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
-    vid = false;
-    $(".msg").append("<p>Please upload gif, png, jpg , jpeg file.</p>");
-  }
-  
   var url_pattern = /^(http[s]?:\/\/)(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/;
   var photo_link = $("#link").val();
   if(!url_pattern.test(photo_link)){
@@ -89,8 +157,8 @@ $("#submit-form").submit(function(e){
   }
 
   if(!$("#check-1").is(":checked")){
-          vid = false;
-          $(".msg").append("<p>Please have a hi-resolution copy of the image I am submitting.</p>");
+      vid = false;
+      $(".msg").append("<p>Please have a hi-resolution copy of the image I am submitting.</p>");
   }
 
   if(!$("#check-2").is(":checked")){
@@ -108,42 +176,21 @@ $("#submit-form").submit(function(e){
   }
 
   if(vid){
-    var url = document.location.origin+"/form.php";
-    // var redirect_url = document.location.origin+"/slanding/gallery.php";
-    var data = $("#submit-form")[0];
-    var formData = new FormData(data);
-    $("#submit-btn").prop("disabled", true);
-    $(".box__input").hide();
-    $("#progress-wrp").show();
+    ga('send', 'event', 'Button', 'Click', 'Entry submit');
+    fbq('track', 'Lead');
+    
+    var url = document.location.origin+"/slanding/form.php";
+
+    $("#submit-btn").prop("disabled", true);    
+    var formData = $("#submit-form").serialize();
+
     $.ajax({
       type:"POST",
       url: url,
       data: formData,
-      processData: false,
-      contentType: false,
-      cache: false,
-      timeout: 600000,
-      xhr: function(){
-        //upload Progress
-        var xhr = $.ajaxSettings.xhr();
-        if (xhr.upload) {
-            xhr.upload.addEventListener('progress', function(event) {
-                var percent = 0;
-                var position = event.loaded || event.position;
-                var total = event.total;
-                if (event.lengthComputable) {
-                    percent = Math.ceil(position / total * 100);
-                }
-                //update progressbar
-                $("#progress-wrp .progress-bar").css("width", + percent +"%");
-                $("#progress-wrp .status").text(percent +"%");
-            }, true);
-        }
-        return xhr;
-      },
-      mimeType:"multipart/form-data"
-    }).done(function(res){
-      $("#thankyou-box").addClass("show");
+      success: function(response){
+        $("#thankyou-box").addClass("show");
+      }
     });
   }
 });

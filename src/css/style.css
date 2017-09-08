@@ -538,7 +538,7 @@ strong {
   height: 180px;
   box-sizing: border-box;
   padding: 30px;
-  font-size: 14px;
+  font-size: 18px;
 }
 /* line 413, ../sass/style.scss */
 #file-upload-area.is-dragover {
@@ -550,22 +550,17 @@ strong {
 }
 /* line 420, ../sass/style.scss */
 #file-upload-area #file-btn {
-  display: inline-block;
-  text-decoration: none;
-  padding: 10px 15px;
-  color: #fff;
-  font-size: 14px;
-  background: #1474f7;
+  color: #1474f7;
 }
-/* line 429, ../sass/style.scss */
+/* line 424, ../sass/style.scss */
 #file-upload-area #fileToUpload {
   display: none;
 }
-/* line 431, ../sass/style.scss */
+/* line 426, ../sass/style.scss */
 #file-upload-area #fileToUpload.show {
   display: inline-block;
 }
-/* line 436, ../sass/style.scss */
+/* line 431, ../sass/style.scss */
 #file-upload-area #progress-wrp {
   display: none;
   position: relative;
@@ -574,7 +569,7 @@ strong {
   background: #fff;
   height: 20px;
 }
-/* line 444, ../sass/style.scss */
+/* line 439, ../sass/style.scss */
 #file-upload-area #progress-wrp .progress-bar {
   height: 20px;
   -moz-border-radius: 3px;
@@ -583,7 +578,7 @@ strong {
   background-color: #1474f7;
   width: 0;
 }
-/* line 450, ../sass/style.scss */
+/* line 445, ../sass/style.scss */
 #file-upload-area #progress-wrp .status {
   position: absolute;
   top: 0;
@@ -596,18 +591,42 @@ strong {
   line-height: 20px;
 }
 
-/* line 463, ../sass/style.scss */
+/* line 458, ../sass/style.scss */
+#uplaod-btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 15px;
+  color: #fff;
+  font-size: 14px;
+  background: #1474f7;
+  text-transform: uppercase;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+/* line 470, ../sass/style.scss */
+#upload-output {
+  color: #ec1c24;
+  font-size: 14px;
+  line-height: 18px;
+}
+/* line 474, ../sass/style.scss */
+#upload-output p {
+  margin: 0 0 10px;
+}
+
+/* line 478, ../sass/style.scss */
 .msg {
   color: #ec1c24;
   font-size: 14px;
   line-height: 18px;
 }
-/* line 467, ../sass/style.scss */
+/* line 482, ../sass/style.scss */
 .msg p {
   margin: 0 0 10px;
 }
 
-/* line 472, ../sass/style.scss */
+/* line 487, ../sass/style.scss */
 .gallery-header {
   padding: 15px 0;
   background: #fff;
@@ -615,65 +634,65 @@ strong {
   -webkit-box-shadow: 0px 1px 10px 0px rgba(145, 145, 145, 0.78);
   box-shadow: 0px 1px 10px 0px rgba(145, 145, 145, 0.78);
 }
-/* line 476, ../sass/style.scss */
+/* line 491, ../sass/style.scss */
 .gallery-header .gallery-header-inner {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
 }
-/* line 480, ../sass/style.scss */
+/* line 495, ../sass/style.scss */
 .gallery-header .header-logo {
   width: 50%;
 }
-/* line 483, ../sass/style.scss */
+/* line 498, ../sass/style.scss */
 .gallery-header .site-nav {
   width: 50%;
 }
 @media screen and (max-width: 600px) {
-  /* line 483, ../sass/style.scss */
+  /* line 498, ../sass/style.scss */
   .gallery-header .site-nav {
     display: none;
   }
 }
 
-/* line 490, ../sass/style.scss */
+/* line 505, ../sass/style.scss */
 .gallery-page {
   padding: 90px 0;
 }
-/* line 492, ../sass/style.scss */
+/* line 507, ../sass/style.scss */
 .gallery-page .gallery-block {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
 }
-/* line 495, ../sass/style.scss */
+/* line 510, ../sass/style.scss */
 .gallery-page .gallery-block .gallery-item {
   width: 25%;
   height: 300px;
   display: block;
 }
 @media screen and (max-width: 800px) {
-  /* line 495, ../sass/style.scss */
+  /* line 510, ../sass/style.scss */
   .gallery-page .gallery-block .gallery-item {
     width: 50%;
   }
 }
 @media screen and (max-width: 650px) {
-  /* line 495, ../sass/style.scss */
+  /* line 510, ../sass/style.scss */
   .gallery-page .gallery-block .gallery-item {
     width: 100%;
   }
 }
 
-/* line 509, ../sass/style.scss */
+/* line 524, ../sass/style.scss */
 #loader-icon {
   text-align: center;
   padding: 30px 0;
 }
 
-/* line 514, ../sass/style.scss */
+/* line 529, ../sass/style.scss */
 #thankyou-box {
   display: none;
   position: fixed;
@@ -693,25 +712,25 @@ strong {
   font-size: 18px;
   line-height: 24px;
 }
-/* line 530, ../sass/style.scss */
+/* line 545, ../sass/style.scss */
 #thankyou-box p {
   margin: 0 0 25px;
 }
-/* line 533, ../sass/style.scss */
+/* line 548, ../sass/style.scss */
 #thankyou-box a {
   color: #1474f7;
   text-decoration: underline;
 }
-/* line 537, ../sass/style.scss */
+/* line 552, ../sass/style.scss */
 #thankyou-box.show {
   display: block;
 }
 
-/* line 541, ../sass/style.scss */
+/* line 556, ../sass/style.scss */
 footer {
   background: #fff;
 }
-/* line 543, ../sass/style.scss */
+/* line 558, ../sass/style.scss */
 footer .footer-inner {
   display: -webkit-flex;
   display: flex;
@@ -719,48 +738,70 @@ footer .footer-inner {
   flex-wrap: wrap;
   padding: 15px 0 40px;
 }
-/* line 547, ../sass/style.scss */
+/* line 562, ../sass/style.scss */
 footer .footer-inner .footer-left {
   width: 50%;
   text-align: left;
 }
-/* line 550, ../sass/style.scss */
+/* line 565, ../sass/style.scss */
 footer .footer-inner .footer-left span {
   vertical-align: middle;
   font-size: 12px;
 }
 @media screen and (max-width: 650px) {
-  /* line 547, ../sass/style.scss */
+  /* line 562, ../sass/style.scss */
   footer .footer-inner .footer-left {
     width: 100%;
     text-align: center;
     margin: 0 0 20px;
   }
 }
-/* line 560, ../sass/style.scss */
+/* line 575, ../sass/style.scss */
 footer .footer-inner .footer-right {
   width: 50%;
   text-align: right;
 }
 @media screen and (max-width: 650px) {
-  /* line 560, ../sass/style.scss */
+  /* line 575, ../sass/style.scss */
   footer .footer-inner .footer-right {
     width: 100%;
     text-align: center;
   }
 }
 
-/* line 571, ../sass/style.scss */
+/* line 586, ../sass/style.scss */
+#photo-copyright {
+  color: #fff;
+  font-size: 18px;
+  position: absolute;
+  bottom: 60px;
+  right: 80px;
+}
+
+@media screen and (max-width: 650px) {
+  /* line 594, ../sass/style.scss */
+  .btn.btn-1 {
+    margin-bottom: 50px;
+  }
+
+  /* line 597, ../sass/style.scss */
+  #photo-copyright {
+    bottom: 20px;
+    right: 20px;
+    font-size: 14px;
+  }
+}
+/* line 604, ../sass/style.scss */
 .pp-tableCell {
   vertical-align: top;
 }
 
-/* line 575, ../sass/style.scss */
+/* line 608, ../sass/style.scss */
 #pp-nav li .active span, .pp-slidesNav .active span {
   background-color: #ec1c24;
 }
 
-/* line 578, ../sass/style.scss */
+/* line 611, ../sass/style.scss */
 #pp-nav span, .pp-slidesNav span {
   background-color: #fff;
   border: 0;

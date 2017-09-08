@@ -409,7 +409,7 @@ strong{
     height: 180px;
     box-sizing: border-box;
     padding: 30px;
-    font-size: 14px;
+    font-size: 18px;
     &.is-dragover {
         background-color: #333;
     }
@@ -418,12 +418,7 @@ strong{
     }
 
     #file-btn{
-        display:inline-block;
-        text-decoration: none;
-        padding: 10px 15px;
-        color: #fff;
-        font-size: 14px;
-        background: #1474f7;
+        color: #1474f7;
     }
 
     #fileToUpload{
@@ -460,6 +455,26 @@ strong{
     }
 }
 
+#uplaod-btn{
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 15px;
+    color: #fff;
+    font-size: 14px;
+    background: #1474f7;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-top:20px;
+}
+
+#upload-output{
+    color: $red;
+    font-size: 14px;
+    line-height: 18px;
+    p{
+        margin: 0 0 10px;
+    }
+}
 .msg{
     color: $red;
     font-size: 14px;
@@ -566,6 +581,24 @@ footer{
             }
         }
     }
+}
+
+#photo-copyright{
+    color:#fff;
+    font-size:18px;
+    position:absolute;
+    bottom:60px;
+    right:80px;
+}
+@media screen and (max-width: 650px){
+.btn.btn-1{
+    margin-bottom: 50px;
+}
+#photo-copyright{
+    bottom: 20px;
+    right: 20px;
+    font-size: 14px;
+}
 }
 
 .pp-tableCell{
