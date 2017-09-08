@@ -1,12 +1,19 @@
 <?php 
     include("settings.php"); 
 
-    $conn = new mysqli($db, $username, $password, $dbname);
-
+    $conn = new mysqli($db, $username, $password);
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     } 
 
+    $create_db_sql = "CREATE DATABASE IF NOT EXISTS {$dbname}";
+    if ($conn->query($create_db_sql) === TRUE) {
+        echo "Database created successfully ";
+    } else {
+        echo "Error creating database: " . $conn->error;
+    }
+
+    $conn->select_db($dbname);
     // sql to create table
     $sql = "CREATE TABLE IF NOT EXISTS {$table_name} (
             id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
@@ -19,7 +26,7 @@
             newsletter VARCHAR(10)
         )";
     if ($conn->query($sql) === TRUE) {
-        echo "Table MyGuests created successfully";
+        echo "Table {$table_name} created successfully";
     } else {
         echo "Error creating table: " . $conn->error;
     }

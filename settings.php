@@ -1,12 +1,12 @@
 <?php
 
-	$base_url = "http://localhost/slanding";
-	$page_title = "SanDisk";
+	$base_url = "http://localhost:8080";
+	$page_title = "SD";
 
-	$db = "localhost";
+	$db = "db";
 	$username = "root";
-	$password = "";
-	$dbname = "test";
+	$password = "hidden1234";
+	$dbname = "MyDB";
 	
 	$table_name = "Entry";
 

@@ -72,7 +72,7 @@ $("#uplaod-btn").on("click", function(e){
     $(".box__input").hide();
     $("#progress-wrp").show();
     formFile.append('upload-photo', file, file.name);
-    var file_url = document.location.origin+"/slanding/ajax-file-upload.php";
+    var file_url = document.location.origin+"/ajax-file-upload.php";
     $.ajax({
       type:"POST",
       url: file_url,
@@ -176,10 +176,8 @@ $("#submit-form").submit(function(e){
   }
 
   if(vid){
-    ga('send', 'event', 'Button', 'Click', 'Entry submit');
-    fbq('track', 'Lead');
     
-    var url = document.location.origin+"/slanding/form.php";
+    var url = document.location.origin+"/form.php";
 
     $("#submit-btn").prop("disabled", true);    
     var formData = $("#submit-form").serialize();
